@@ -81,12 +81,12 @@ class InvoicePaymentsReport(ListExporter):
         ).select_related('order')
 
         if date_from:
-            invoice_qs = invoice_qs.filter(date__gte=date_from)
+            invoice_qs = invoice_qs.filter(invoice__date__gte=date_from)
             payment_qs = payment_qs.filter(date__gte=date_from)
             refund_qs = refund_qs.filter(date__gte=date_from)
 
         if date_to:
-            invoice_qs = invoice_qs.filter(date__lte=date_to)
+            invoice_qs = invoice_qs.filter(invoice__date__lte=date_to)
             payment_qs = payment_qs.filter(date__lte=date_to)
             refund_qs = refund_qs.filter(date__lte=date_to)
 
