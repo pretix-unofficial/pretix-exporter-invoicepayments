@@ -8,6 +8,7 @@ except ImportError:
 
 
 class PluginApp(PluginConfig):
+    default = True
     name = "pretix_exporter_invoicepayments"
     verbose_name = "Invoice & Payment exporter"
 
