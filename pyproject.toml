@@ -1,0 +1,43 @@
+[project]
+name = "pretix-exporter-invoicepayments"
+dynamic = ["version"]
+description = "Export payments and invoices in the same sheet"
+readme = "README.rst"
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
+keywords = ["pretix"]
+authors = [
+    {name = "pretix team", email = "support@pretix.eu"},
+]
+maintainers = [
+    {name = "pretix team", email = "support@pretix.eu"},
+]
+
+dependencies = [
+
+]
+
+[project.entry-points."pretix.plugin"]
+pretix_exporter_invoicepayments = "pretix_exporter_invoicepayments:PretixPluginMeta"
+
+[project.entry-points."distutils.commands"]
+build = "pretix_plugin_build.build:CustomBuild"
+
+[build-system]
+requires = [
+    "setuptools",
+    "pretix-plugin-build",
+]
+
+[project.urls]
+homepage = "https://github.com/pretix-unofficial/pretix-exporter-invoicepayments"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = {attr = "pretix_exporter_invoicepayments.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["pretix*"]
+namespaces = false
